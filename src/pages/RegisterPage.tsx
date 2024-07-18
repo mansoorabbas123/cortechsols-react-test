@@ -1,19 +1,19 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../components/common";
 import { z } from "zod";
-import { LoginFormSchema } from "../lib/schemas";
+import { RegisterFormSchema } from "../lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof LoginFormSchema>>({
-    resolver: zodResolver(LoginFormSchema),
+  } = useForm<z.infer<typeof RegisterFormSchema>>({
+    resolver: zodResolver(RegisterFormSchema),
   });
 
-  const onSubmit = (values: z.infer<typeof LoginFormSchema>) => {
+  const onSubmit = (values: z.infer<typeof RegisterFormSchema>) => {
     console.log(values);
   };
 
@@ -25,6 +25,19 @@ export const LoginPage = () => {
         className="w-96 mx-auto py-8 px-5 bg-secondary-background rounded-lg"
       >
         <h2 className="font-bold text-xl mb-5">Sign in to your Account</h2>
+
+        <Input
+          label="First Name"
+          type="text"
+          register={register("firstName")}
+          error={errors.firstName?.message}
+        />
+        <Input
+          label="Last Name"
+          type="text"
+          register={register("lastName")}
+          error={errors.lastName?.message}
+        />
 
         <Input
           label="Your Email"
@@ -41,7 +54,7 @@ export const LoginPage = () => {
 
         <input
           type="submit"
-          value="Sign in"
+          value="Create an account"
           className=" py-2 border w-full rounded-lg cursor-pointer "
         />
       </form>

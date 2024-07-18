@@ -5,10 +5,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary": "var(--primary)",
+        primary: "var(--primary)",
         "primary-background": "var(--primary-background)",
         "secondary-background": "var(--secondary-background)",
-        "foreground": "var(--foreground)",
+        foreground: "var(--foreground)",
+        "charcoal-solid": "var(--charcoal-solid)",
       },
     },
   },
