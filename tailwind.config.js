@@ -3,7 +3,14 @@ export default {
   darkMode: "selector",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "primary": "var(--primary)",
+        "primary-background": "var(--primary-background)",
+        "secondary-background": "var(--secondary-background)",
+        "foreground": "var(--foreground)",
+      },
+    },
   },
   plugins: [],
 };
