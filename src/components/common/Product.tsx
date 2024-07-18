@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
+import { IProduct } from "../../pages";
+import { useCart } from "../../context/cart-context";
 
-export const Product = () => {
+interface Props {
+  product: IProduct
+}
+
+export const Product = ({product}: Props) => {
+  const { items, addItem, removeItem, clearCart } = useCart();
+
   return (
-    <div className="p-3 bg-secondary-background rounded text-white">
-      <img src="https://placehold.co/600x400" alt="" className="mb-4" />
-      <p className="mb-5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid nobis
-        esse nostrum nisi excepturi consequatur a, temporibus dicta fuga, minima
-        atque architecto, quis minus numquam autem perferendis deleniti modi
-        illo.
-      </p>
-      <div className="flex justify-between items-center  ">
-        <span>$44</span>{" "}
-        <Link to="/cart" className="p-2 rounded bg-blue-600 ">
-          Add to Card
-        </Link>
-      </div>
+    <div className="p-5 bg-secondary-background rounded-lg text-white">
+      <img src={product.image} alt="" className="mb-4 w-full h-[350px] object-cover" />
+    <p className="mb-5">{product.description.substring(0,100)}</p>
+    <div className="flex justify-between items-center  ">
+      <span>${product.price}</span>{" "}
+      <button onClick={()=> addItem({id: product.id, title: product.title, price: product.price, quantity: 1})} className="p-2 rounded bg-blue-600 ">
+        Add to Card
+      </button>
     </div>
+  </div>
   );
 };

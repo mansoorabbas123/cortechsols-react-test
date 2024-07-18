@@ -1,10 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
+import { CartProvider } from "./context/cart-context";
 
 function App() {
   return (
     <div className="dark">
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </div>
   );
 }

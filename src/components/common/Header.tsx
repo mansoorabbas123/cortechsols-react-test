@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="bg-secondary-background text-white py-2">
       <div className="container flex justify-between items-center  mx-auto">
@@ -8,8 +10,8 @@ export const Header = () => {
           <NavLink to="categories">Categories</NavLink>
           <NavLink to="/">All Products</NavLink>
         </div>
-        <div className="flex items-center gap-2">
-          <button>
+        <div className="flex items-center gap-4">
+          <button onClick={()=> navigate('/cart')}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"

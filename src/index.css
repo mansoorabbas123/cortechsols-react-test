@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  box-sizing: border-box;
+}
+
 :root {
   --primary: #2660de;
 

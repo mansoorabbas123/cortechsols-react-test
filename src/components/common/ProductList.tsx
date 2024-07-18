@@ -1,10 +1,15 @@
+import { IProduct } from "../../pages";
 import { Product } from "./Product";
 
-export const ProductList = () => {
+interface Props {
+  products: IProduct[] | null
+}
+
+export const ProductList = ({products}: Props) => {
   return (
     <div className="products-wrapper">
-      {Array.from({ length: 30 }, (_, i) => i + 1).map((el: number) => (
-        <Product key={el} />
+      {products && products.map((product: IProduct) => (
+        <Product key={product.id} product={product}/>
       ))}
     </div>
   );

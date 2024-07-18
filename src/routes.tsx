@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { HomePage, LoginPage, RegisterPage } from "./pages";
+import { CartPage, HomePage, LoginPage, RegisterPage } from "./pages";
 import { ProtectedRoute } from "./components/common";
 
 const router = createBrowserRouter([
@@ -18,6 +18,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
       },
+      {
+        path: "cart",
+        element: <CartPage />
+      }
     ],
   },
 ]);

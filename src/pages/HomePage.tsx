@@ -1,9 +1,10 @@
 import useFetch from "../custom-hooks/useFetch";
 import { base_url } from "../config";
-import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { ProductList } from "../components/common";
 
-interface Product {
+export interface IProduct {
   id: number;
   title: string;
   description: string;
@@ -16,15 +17,31 @@ export const HomePage = () => {
     data: products,
     loading,
     error,
-  } = useFetch<Product[]>(`${base_url}/products`);
+  } = useFetch<IProduct[]>(`${base_url}/products`);
   console.log("data", products);
   console.log("loading", loading);
   console.log("error", error);
 
+  const render_products = () => {
+    if (error) {
+      return <div>error</div>;
+    } else if (loading) {
+      return (
+        <div className="products-wrapper">
+          {Array.from({ length: 10 }, (_, i) => i + 1).map((el: number) => (
+            <Skeleton key={el} height={400} className="rounded-lg" />
+          ))}
+        </div>
+      );
+    } else {
+      return <ProductList products={products} />;
+    }
+  };
+
   return (
     <div className="container mx-auto rounded-lg">
       <h1 className="text-primary-color font-bold mt-12 mb-5">All Products</h1>
-      <ProductList />
+      {render_products()}
     </div>
   );
 };

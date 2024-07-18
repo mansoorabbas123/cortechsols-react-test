@@ -9,6 +9,6 @@ export const ProtectedRoute = () => {
       <Outlet />
     </MainLayout>
   ) : (
-    <Navigate to="/" />
+    <Navigate to="/login" />
   );
 };
