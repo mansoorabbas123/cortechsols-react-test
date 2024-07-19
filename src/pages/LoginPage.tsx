@@ -3,6 +3,7 @@ import { Input } from "../components/common";
 import { z } from "zod";
 import { LoginFormSchema } from "../lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const {
@@ -12,9 +13,25 @@ export const LoginPage = () => {
   } = useForm<z.infer<typeof LoginFormSchema>>({
     resolver: zodResolver(LoginFormSchema),
   });
+  const navigate = useNavigate();
 
-  const onSubmit = (values: z.infer<typeof LoginFormSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof LoginFormSchema>) => {
+    // simulate login
+    const savedCreds = localStorage.getItem("creds")
+      ? JSON.parse(localStorage.getItem("creds") as any)
+      : null;
+    const token = "asjdfh;alkh983y4p8923yhf98h";
+    if (
+      savedCreds &&
+      savedCreds.password === values.password &&
+      savedCreds.email === values.email
+    ) {
+      savedCreds.token = token;
+      localStorage.setItem("creds", JSON.stringify(savedCreds));
+      navigate("/");
+    } else {
+      alert("invalid credentials");
+    }
   };
 
   return (
@@ -44,6 +61,12 @@ export const LoginPage = () => {
           value="Sign in"
           className=" py-2 border w-full rounded-lg cursor-pointer "
         />
+        <p className="mt-4 text-sm">
+          Don't have an account yet?{" "}
+          <Link to="/register" className="inline">
+            Sign up
+          </Link>{" "}
+        </p>
       </form>
     </div>
   );

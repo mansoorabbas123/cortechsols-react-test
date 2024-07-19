@@ -3,7 +3,6 @@ import { base_url } from "../config";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { ProductList } from "../components/common";
-
 export interface IProduct {
   id: number;
   title: string;
@@ -18,9 +17,6 @@ export const HomePage = () => {
     loading,
     error,
   } = useFetch<IProduct[]>(`${base_url}/products`);
-  console.log("data", products);
-  console.log("loading", loading);
-  console.log("error", error);
 
   const render_products = () => {
     if (error) {

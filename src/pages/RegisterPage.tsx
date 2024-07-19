@@ -3,6 +3,7 @@ import { Input } from "../components/common";
 import { z } from "zod";
 import { RegisterFormSchema } from "../lib/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link, useNavigate } from "react-router-dom";
 
 export const RegisterPage = () => {
   const {
@@ -12,9 +13,13 @@ export const RegisterPage = () => {
   } = useForm<z.infer<typeof RegisterFormSchema>>({
     resolver: zodResolver(RegisterFormSchema),
   });
+  const navigate = useNavigate();
 
   const onSubmit = (values: z.infer<typeof RegisterFormSchema>) => {
     console.log(values);
+    // simulate register in db
+    localStorage.setItem("creds", JSON.stringify(values));
+    navigate("/login");
   };
 
   return (
@@ -57,6 +62,12 @@ export const RegisterPage = () => {
           value="Create an account"
           className=" py-2 border w-full rounded-lg cursor-pointer "
         />
+        <p className="mt-4 text-sm">
+          Already have an account?{" "}
+          <Link to="/login" className="inline">
+            Login
+          </Link>{" "}
+        </p>
       </form>
     </div>
   );
