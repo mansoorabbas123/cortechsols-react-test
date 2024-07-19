@@ -15,7 +15,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-secondary-background text-white py-2">
+    <header className="bg-secondary-background text-foreground p-2 md:px-20 px-2">
       <div className="container flex justify-between items-center  mx-auto">
         <div className="flex items-center gap-3">
           <NavLink to="categories">Categories</NavLink>

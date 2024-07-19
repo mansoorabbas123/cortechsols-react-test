@@ -35,7 +35,7 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="container mx-auto rounded-lg">
+    <div className="container mx-auto rounded-lg md:px-20 px-2">
       <h1 className="text-primary-color font-bold mt-12 mb-5">All Products</h1>
       {render_products()}
     </div>

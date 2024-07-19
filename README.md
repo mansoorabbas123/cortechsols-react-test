@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+**Description:**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application built with Vite that implements basic e-commerce functionalities. Users can register, login, view products, add items to their cart, adjust quantities, and checkout using Stripe (simulated).
 
-Currently, two official plugins are available:
+**Features:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   User registration and login
+-   Product browsing
+-   Cart management (add, remove, quantity adjustment)
+-   Checkout simulation with Stripe (frontend-only)
 
-## Expanding the ESLint configuration
+**Project Setup:**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1.  Clone the repository.
+    
+2.  Install dependencies:
+    
+    Bash
+    
+    ```
+    npm install
+    
+    ```
+    
+    Use code [with caution.](/faq#coding)
+    
+3.  Run the development server:
+    
+    Bash
+    
+    ```
+    npm run dev
+    
+    ```
+    
+    Use code [with caution.](/faq#coding)
+    
 
-- Configure the top-level `parserOptions` property like this:
+**Application Usage:**
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1.  **Initial Access:** Upon first visit, shop routes are private and require registration and login.
+2.  **Registration:** Create a new account with your desired credentials.
+3.  **Login:** Use your registered email and password to log in.
+    -   A token is generated on the frontend and stored in local storage for session persistence.
+4.  **Shop:** After successful login, you can access product listings, add items to your cart, and checkout.
+5.  **Checkout:** Make a transaction using stripe.
+6.  **Logout:** Clicking "Logout" removes the user token from local storage.
+    -   Subsequent visits require login again.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+**Technical Details:**
+
+-   Built with Typescript React and Vite for a fast and efficient development experience.
+-   Local storage is used for user credentials and session management (simulated backend).
+-   Frontend token generation for session persistence.
+-   Stripe integration is simulated for checkout functionality (no actual backend connection).
+
+**Disclaimer:**
+
+This application is for demonstration purposes only. A real-world e-commerce application would require a secure backend for user data management, authentication, and payment processing.

@@ -1,4 +1,5 @@
 import { CartItem } from "../components/common/CartItem";
+import CheckoutButton from "../components/common/CheckoutButton";
 import { useCart } from "../context/CartContext";
 
 export const CartPage = () => {
@@ -45,12 +46,7 @@ export const CartPage = () => {
                 </span>
               </div>
             </div>
-            <button
-              onClick={() => console.log("log")}
-              className="p-2 rounded bg-primary text-foreground w-full hover:opacity-80 transition-all"
-            >
-              Add to Card
-            </button>
+            <CheckoutButton />
           </div>
         </div>
       ) : (
