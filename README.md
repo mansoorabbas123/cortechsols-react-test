@@ -1,13 +1,13 @@
 **Description:**
 
-This is a React application built with Vite that implements basic e-commerce functionalities. Users can register, login, view products, add items to their cart, adjust quantities, and checkout using Stripe (simulated).
+This is a React application built with Vite that implements basic e-commerce functionalities. Users can register, login, view products, add items to their cart, adjust quantities, and checkout using Stripe.
 
 **Features:**
 
 -   User registration and login
 -   Product browsing
 -   Cart management (add, remove, quantity adjustment)
--   Checkout simulation with Stripe (frontend-only)
+-   Checkout with Stripe (frontend-only)
 
 **Project Setup:**
 
@@ -21,9 +21,7 @@ This is a React application built with Vite that implements basic e-commerce fun
     npm install
     
     ```
-    
-    Use code [with caution.](/faq#coding)
-    
+        
 3.  Run the development server:
     
     Bash
@@ -32,9 +30,7 @@ This is a React application built with Vite that implements basic e-commerce fun
     npm run dev
     
     ```
-    
-    Use code [with caution.](/faq#coding)
-    
+        
 
 **Application Usage:**
 
@@ -52,7 +48,7 @@ This is a React application built with Vite that implements basic e-commerce fun
 -   Built with Typescript React and Vite for a fast and efficient development experience.
 -   Local storage is used for user credentials and session management (simulated backend).
 -   Frontend token generation for session persistence.
--   Stripe integration is simulated for checkout functionality (no actual backend connection).
+-   Stripe integration is simulated for checkout functionality.
 
 **Disclaimer:**
 
