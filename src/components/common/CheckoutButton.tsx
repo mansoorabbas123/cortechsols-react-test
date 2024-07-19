@@ -1,7 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { useCart } from "../../context/CartContext";
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY!);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY!);
 
 const CheckoutButton = () => {
   const { items } = useCart();
